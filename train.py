@@ -168,7 +168,12 @@ def main_worker(gpu, ngpus_per_node, args):
             # transforms.RandomResizedCrop(args.resolution),
             transforms.RandomHorizontalFlip(),
             transforms.RandomVerticalFlip(),
-            transforms.RandomRotation(),
+            transforms.RandomRotation(180),
+            transforms.ColorJitter(),
+            transforms.RandomAffine(),
+            transforms.RandomAdjustSharpness(2),
+            transforms.RandomAutocontrast(),
+            transforms.RandomEqualize(),
             transforms.ToTensor(),
             normalize,
         ]))
